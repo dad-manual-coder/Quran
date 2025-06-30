@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quran</title>
+    
+ <style>
+      /* Light Mode (Default) Variables */
+:root {
+    --bg-color: #fff0f5; /* Light Pink */
+    --primary-color: #ffffff;
+    --secondary-color: #ff69b4; /* Pink */
+    --accent-color: #c71585; /* Fuchsia/MediumVioletRed */
+    --text-color: #333;
+    --shadow-color: rgba(199, 21, 133, 0.2);
+    --menu-bg: linear-gradient(135deg, #ffc0cb, #c71585);
+    --menu-text: #ffffff;
+    --menu-hover: #ffffff;
+    --menu-hover-text: #c71585;
+    --nav-icon-stroke: #c71585;
+    --theme-icon-color: #c71585;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --bg-color: #000000;
+    --primary-color: #0d1a1a;
+    --secondary-color: #00ff84; /* Green */
+    --accent-color: #48d1cc; /* Sea Green/MediumTurquoise */
+    --text-color: #e0e0e0;
+    --shadow-color: rgba(72, 209, 204, 0.2);
+    --menu-bg: linear-gradient(135deg, #002b2b, #000000);
+    --menu-text: #e0e0e0;
+    --menu-hover: var(--accent-color);
+    --menu-hover-text: #000000;
+    --nav-icon-stroke: var(--secondary-color);
+    --theme-icon-color: var(--secondary-color);
+}
+
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* --- Header and Navigation --- */
+.header-container {
+    display: flex;
+    justify-content: space-between; /* This creates space between the items */
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--secondary-color);
+    text-shadow: 1px 1px 2px var(--shadow-color);
+    /* The logo will naturally center because of space-between on the container */
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+.navbar .open-slide a svg path {
+    stroke: var(--nav-icon-stroke);
+    transition: stroke 0.3s;
+}
+
+#theme-toggle {
+    background: none;
+    border: 2px solid var(--theme-icon-color);
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 0 15px var(--theme-icon-color);
+}
+
+#theme-toggle svg {
+    stroke: var(--theme-icon-color);
+    transition: stroke 0.3s;
+}
+
+.moon { display: none; }
+.sun { display: block; }
+.dark-mode .moon { display: block; }
+.dark-mode .sun { display: none; }
+
+
+/* --- Side Menu --- */
+.side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1001;
+    top: 0;
+    left: 0;
+    background: var(--menu-bg);
+    overflow-x: hidden;
+    transition: 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    padding-top: 20px;
+    box-shadow: 5px 0 25px rgba(0,0,0,0.5);
+}
+
+.side-menu .menu-header {
+    padding: 20px 30px;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--menu-text);
+    text-align: center;
+}
+
+.side-menu a {
+    padding: 15px 20px 15px 40px;
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--menu-text);
+    display: block;
+    transition: background-color 0.4s ease, color 0.4s ease, padding-left 0.4s ease;
+    border-left: 5px solid transparent;
+}
+
+.side-menu a:hover {
+    background-color: var(--menu-hover);
+    color: var(--menu-hover-text);
+    border-left: 5px solid var(--menu-hover-text);
+    padding-left: 50px;
+}
+
+.side-menu .btn-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    font-size: 40px;
+    color: var(--menu-text);
+}
+.side-menu .btn-close:hover {
+    color: red;
+    background: none;
+    border-left: 5px solid transparent;
+    padding-left: 20px;
+}
+
+/* --- Main Content --- */
+#main {
+    padding: 0;
+}
+
+.main-header-image {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    overflow: hidden;
+}
+
+.main-header-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+.main-header-image .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    width: 90%;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.sura-section-title {
+    text-align: center;
+    font-size: 2em;
+    margin: 40px 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* --- ADJUSTED SURAH LIST --- */
+#sura-list {
+    max-width: 1400px; /* Set a max width for the grid container */
+    margin: 0 auto; /* Center the container on the page */
+    padding: 0 20px 40px 20px; /* Adjust padding for spacing */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    justify-content: center; /* Center grid items if there's leftover space */
+}
+
+.sura-item {
+    background-color: var(--primary-color);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px -5px var(--shadow-color);
+    border: 1px solid var(--accent-color);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sura-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px -5px var(--shadow-color);
+}
+
+.sura-item h2 {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+audio {
+    width: 100%;
+    margin: 15px 0;
+    border-radius: 30px;
+}
+
+.download-button {
+    background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.download-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+/* --- Moving Allah Button --- */
+#moving-allah-button {
+    position: fixed;
+    z-index: 1002;
+    background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+    color: white;
+    padding: 15px 25px;
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 50px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    cursor: default;
+    user-select: none;
+    transition: top 2s ease-in-out, left 2s ease-in-out, transform 0.3s;
+}
+
+#moving-allah-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+</style>
+
+</head>
+<body>
+    <div id="moving-allah-button">الله</div>
+
+    <div class="header-container">
+        <nav class="navbar">
+            <span class="open-slide">
+                <a href="#" onclick="openSlideMenu()">
+                    <svg width="30" height="30" viewBox="0 0 30 30">
+                        <path d="M0,5 30,5" stroke-width="4"></path>
+                        <path d="M0,14 30,14" stroke-width="4"></path>
+                        <path d="M0,23 30,23" stroke-width="4"></path>
+                    </svg>
+                </a>
+            </span>
+        </nav>
+
+        <div class="logo">ONLINE<span>QURAN</span></div>
+        
+        <button id="theme-toggle">
+            <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+    </div>
+
+    <div id="side-menu" class="side-menu">
+        <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+        <div class="menu-header">Menu</div>
+        <a href="index.html" class="Links" onclick="closeSlideMenu()">Home</a>
+        <a href="names_of_allah.html" class="Links" onclick="closeSlideMenu()">Names of ALLAH</a>
+        <a href="moral_lessons.html" class="Links" onclick="closeSlideMenu()">Islamic Facts</a>
+        <a href="about.html" class="Links" onclick="closeSlideMenu()">About</a>
+    </div>
+
+    <div id="main">
+        <div class="main-header-image">
+             <img src="/Images/Allah_image.jpg" alt="Allah Image">
+             <div class="overlay-text">
+                 <br>
+                <h2 style="color: pink">Life is a test...</h2>
+             </div>
+        </div>
+        <div class="sura-section-title">
+            <h2>Surahs in the Quran</h2>
+        </div>
+        <div id="sura-list"></div>
+    </div>
+<script>
+      document.addEventListener('DOMContentLoaded', () => {
+    const suraList = document.getElementById('sura-list');
+    const themeToggle = document.getElementById('theme-toggle');
+    const movingButton = document.getElementById('moving-allah-button');
+
+    const surahNames = [
+        "Al-Fatihah", "Al-Baqarah", "Aal-E-Imran", "An-Nisa", "Al-Ma'idah", "Al-An'am", "Al-A'raf", "Al-Anfal", "At-Tawbah", "Yunus", "Hud", "Yusuf", "Ar-Ra'd", "Ibrahim", "Al-Hijr", "An-Nahl", "Al-Isra", "Al-Kahf", "Maryam", "Taha", "Al-Anbiya", "Al-Hajj", "Al-Muminun", "An-Nur", "Al-Furqan", "Ash-Shu'ara", "An-Naml", "Al-Qasas", "Al-Ankabut", "Ar-Rum", "Luqman", "As-Sajdah", "Al-Ahzab", "Saba", "Fatir", "Ya-Sin", "As-Saffat", "Sad", "Az-Zumar", "Ghafir", "Fussilat", "Ash-Shura", "Az-Zukhruf", "Ad-Dukhan", "Al-Jathiyah", "Al-Ahqaf", "Muhammad", "Al-Fath", "Al-Hujurat", "Qaf", "Adh-Dhariyat", "At-Tur", "An-Najm", "Al-Qamar", "Ar-Rahman", "Al-Waqi'ah", "Al-Hadid", "Al-Mujadilah", "Al-Hashr", "Al-Mumtahanah", "As-Saff", "Al-Jumu'ah", "Al-Munafiqun", "At-Taghabun", "At-Talaq", "At-Tahrim", "Al-Mulk", "Al-Qalam", "Al-Haqqah", "Al-Ma'arij", "Nuh", "Al-Jinn", "Al-Muzzammil", "Al-Muddaththir", "Al-Qiyamah", "Al-Insan", "Al-Mursalat", "An-Naba", "An-Nazi'at", "'Abasa", "At-Takwir", "Al-Infitar", "Al-Mutaffifin", "Al-Inshiqaq", "Al-Buruj", "At-Tariq", "Al-A'la", "Al-Ghashiyah", "Al-Fajr", "Al-Balad", "Ash-Shams", "Al-Layl", "Ad-Duha", "Ash-Sharh", "At-Tin", "Al-'Alaq", "Al-Qadr", "Al-Bayyinah", "Az-Zalzalah", "Al-'Adiyat", "Al-Qari'ah", "At-Takathur", "Al-'Asr", "Al-Humazah", "Al-Fil", "Quraysh", "Al-Ma'un", "Al-Kawthar", "Al-Kafirun", "An-Nasr", "Al-Masad", "Al-Ikhlas", "Al-Falaq", "An-Nas"
+    ];
+
+    // Generate Surah list in descending order
+    if (suraList) {
+        for (let i = 114; i >= 1; i--) {
+            const suraItem = document.createElement('div');
+            suraItem.classList.add('sura-item');
+
+            const suraName = surahNames[i - 1];
+
+            suraItem.innerHTML = `
+                <h2>${suraName} ~${i}~</h2>
+                <audio controls>
+                    <source src="/audios/${i}.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <a href="/audios/${i}.mp3" download class="download-button">Download</a>
+            `;
+            suraList.appendChild(suraItem);
+        }
+    }
+
+
+    // Theme toggle functionality
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+
+    // Moving button functionality
+    function moveButton() {
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+        const buttonWidth = movingButton.offsetWidth;
+        const buttonHeight = movingButton.offsetHeight;
+
+        const newX = Math.random() * (screenWidth - buttonWidth);
+        const newY = Math.random() * (screenHeight - buttonHeight);
+
+        movingButton.style.left = `${newX}px`;
+        movingButton.style.top = `${newY}px`;
+    }
+
+    // Initial position and start moving
+    moveButton();
+    setInterval(moveButton, 3000); // Move every 3 seconds
+});
+
+// Side Menu Functions
+function openSlideMenu() {
+    document.getElementById('side-menu').style.width = '300px';
+}
+
+function closeSlideMenu() {
+    document.getElementById('side-menu').style.width = '0';
+}
+    </script>
+    <footer style="width: 100%; padding: 20px 0; text-align: center; color: white;
+    background: linear-gradient(to right, #FFC0CB, #FF00FF, #008000, #2E8B57, #000000);
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-top: 3px solid rgba(255, 255, 255, 0.3);">
+    <p style="margin: 0; font-size: 17px; color: #f0f0f0; text-shadow: 1px 1px 2px rgba(0,0,0,0.7);">
+        &copy; 2025 Online Quran made with love by,
+        <a href="https://dad-azcq.vercel.app"
+           style="color: #ffffff; text-decoration: none; font-size: 20px; font-weight: bold;
+           text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+           transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;"
+           onmouseover="this.style.color='#FFD700'; this.style.textDecoration='underline';"
+           onmouseout="this.style.color='#ffffff'; this.style.textDecoration='none';"><br>Ousman</a>
+    </p>
+</footer>
+
+</body>
+</html>

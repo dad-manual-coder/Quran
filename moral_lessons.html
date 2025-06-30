@@ -1,0 +1,787 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Moral Lessons - A Path to Serenity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+ 
+<style>
+      /* style.css */
+
+/* Google Fonts */
+body {
+    font-family: 'Open Sans', Arial, sans-serif; /* A clean, modern font */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: background-color 0.7s ease, color 0.7s ease; /* Smooth transition for theme changes */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Base Dark Mode - (Black, Green, Sea Green) */
+body {
+    background-color: #0c1a1a; /* Very dark blue-green */
+    color: #e0f2f1; /* Light sea green for general text */
+}
+
+.container {
+    background-color: rgba(0, 30, 30, 0.5); /* Semi-transparent, dark sea green shade */
+    border-radius: 20px; /* More rounded corners */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7); /* Deeper, more diffused shadow */
+    backdrop-filter: blur(12px); /* Stronger blur effect */
+    -webkit-backdrop-filter: blur(12px); /* For Safari support */
+    padding: 40px;
+    margin: 60px auto; /* More vertical space */
+    max-width: 900px; /* Max width for readability */
+    position: relative; /* For potential future animations */
+    border: 1px solid rgba(76, 175, 80, 0.3); /* Subtle green border */
+}
+
+h1 {
+    font-family: 'Merriweather', serif; /* A more elegant font for headings */
+    font-size: 3.5em; /* Significantly larger heading */
+    color: #4CAF50; /* Vibrant green */
+    border-bottom: 3px solid #66BB6A; /* Lighter green, thicker border */
+    padding-bottom: 15px;
+    margin-bottom: 35px;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9); /* More prominent text shadow */
+    letter-spacing: 1.5px; /* Wider letter spacing */
+}
+
+h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.5em;
+    color: #81C784; /* Lighter green for sub-heading */
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+p {
+    font-size: 1.2em; /* Larger paragraph text */
+    line-height: 1.8;
+    text-align: justify; /* Justify text for a refined look */
+    margin-bottom: 20px;
+}
+
+.quote {
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    margin: 40px auto; /* More vertical space and centered */
+    border-left: 8px solid; /* Much thicker border */
+    padding-left: 20px;
+    font-size: 1.3em;
+    max-width: 750px; /* Slightly wider quotes */
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5); /* More pronounced shadow for quotes */
+    border-radius: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: rgba(0, 60, 60, 0.2); /* Slight background for quotes */
+    color: #B2DFDB; /* Slightly different text color for quotes */
+}
+
+footer {
+    margin-top: 50px;
+    padding: 20px;
+    background: #1a1a1a; /* Dark gray for footer */
+    color: #b0bec5; /* Light gray for footer text */
+    font-size: 0.95em;
+    letter-spacing: 0.8px;
+    box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow for footer */
+}
+
+/* --- Light Mode Styles --- */
+body.light-mode {
+    background-color: #FFF0F5; /* Light Pink background (Blush) */
+    color: #333333; /* Darker text for readability */
+}
+
+body.light-mode .container {
+    background-color: rgba(255, 220, 230, 0.6); /* Translucent light pink */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 64, 129, 0.3); /* Subtle pink border */
+}
+
+body.light-mode h1 {
+    color: #FF4081; /* Fushia */
+    border-bottom-color: #FF80AB; /* Pink */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Lighter text shadow */
+}
+
+body.light-mode h2 {
+    color: #FF66A0; /* Medium pink for sub-heading */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode p {
+    color: #424242; /* Slightly darker text for contrast */
+}
+
+body.light-mode .quote {
+    border-left-color: #F8BBD0; /* Lighter pink border for quotes */
+    background-color: rgba(255, 240, 245, 0.7); /* Very light pink background for quotes */
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    color: #616161; /* Darker gray for quote text */
+}
+
+body.light-mode footer {
+    background: #E0E0E0; /* Light gray footer */
+    color: #616161; /* Darker gray text */
+    box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Buttons (Smaller and Repositioned) --- */
+
+.menu-toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 15px;
+    padding: 10px 12px; /* Smaller padding */
+    border: none;
+    border-radius: 8px; /* Slightly less rounded */
+    background-color: #4CAF50; /* Green in dark mode */
+    color: white;
+    cursor: pointer;
+    z-index: 1001; /* Above menu */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4); /* Smaller button shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-toggle-btn:hover {
+    background-color: #66BB6A;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+body.light-mode .menu-toggle-btn {
+    background-color: #FF4081; /* Fushia in light mode */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .menu-toggle-btn:hover {
+    background-color: #FF80AB;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Theme Switcher (Toggle Switch) --- */
+.theme-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: inline-block;
+    width: 50px; /* Width of the switch */
+    height: 28px; /* Height of the switch */
+    z-index: 1001; /* Above menu */
+    cursor: pointer;
+    /* No shadow on the label itself, slider has it */
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #26C6DA; /* Sea green for dark mode switch track */
+    transition: 0.4s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); /* Shadow for switch */
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3); /* Shadow for knob */
+}
+
+input:checked + .slider {
+    background-color: #FF80AB; /* Pink for light mode switch track */
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #FF80AB;
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px); /* Move knob for light mode */
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 28px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* --- Side Menu Styling --- */
+.side-menu {
+    height: 100%;
+    width: 0; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark background with transparency */
+    overflow-x: hidden;
+    transition: 0.5s; /* Slide in/out animation */
+    padding-top: 60px;
+    text-align: center;
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.7); /* Shadow for the menu */
+    backdrop-filter: blur(8px); /* Blur behind the menu */
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu li {
+    padding: 15px 0;
+}
+
+.side-menu a {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: #66BB6A; /* Green links for dark mode */
+    display: block;
+    transition: 0.3s;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.side-menu a:hover, .side-menu a:focus {
+    color: #A5D6A7; /* Lighter green on hover */
+    background-color: rgba(76, 175, 80, 0.1); /* Subtle background on hover */
+    transform: translateX(10px); /* Slight slide on hover */
+}
+
+.close-menu-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 2.5em;
+    color: #e0f2f1; /* Light sea green close button */
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: 0.3s;
+    line-height: 1; /* For better 'x' alignment */
+    padding: 0; /* Remove default padding */
+}
+
+.close-menu-btn:hover {
+    color: #FF4081; /* Fushia on hover */
+    transform: rotate(90deg);
+}
+
+/* Light Mode Menu Styling */
+body.light-mode .side-menu {
+    background-color: rgba(255, 255, 255, 0.9); /* Light background with transparency */
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .side-menu a {
+    color: #D81B60; /* Darker Pink/Magenta links for light mode */
+}
+
+body.light-mode .side-menu a:hover, body.light-mode .side-menu a:focus {
+    color: #FF4081; /* Fushia on hover */
+    background-color: rgba(255, 64, 129, 0.08);
+}
+
+body.light-mode .close-menu-btn {
+    color: #616161; /* Dark gray close button */
+}
+
+/* Lessons Grid */
+.lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 25px; /* Space between cards */
+    margin-top: 40px;
+    padding: 0 10px; /* Small padding for edges */
+}
+
+.lesson-card {
+    background-color: rgba(0, 40, 40, 0.6); /* Slightly lighter transparent background for cards */
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* Shadow for cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border: 1px solid rgba(76, 175, 80, 0.2); /* Subtle border */
+    text-align: left; /* Align text left within cards */
+}
+
+.lesson-card:hover {
+    transform: translateY(-8px); /* Lift effect on hover */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7); /* Stronger shadow on hover */
+}
+
+.lesson-card h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.6em;
+    color: #90CAF9; /* Light blue for card headings in dark mode */
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.lesson-card p {
+    font-size: 1.05em;
+    line-height: 1.6;
+    color: #e0f2f1; /* Sea green for card text */
+    margin-bottom: 0;
+}
+
+/* Light Mode Card Styles */
+body.light-mode .lesson-card {
+    background-color: rgba(255, 230, 235, 0.7); /* Light pink transparent for cards */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 64, 129, 0.2);
+}
+
+body.light-mode .lesson-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+body.light-mode .lesson-card h3 {
+    color: #FF4081; /* Fushia for card headings in light mode */
+    text-shadow: none;
+}
+
+body.light-mode .lesson-card p {
+    color: #555555; /* Darker gray for card text */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 25px;
+        margin: 30px auto;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1.1em;
+    }
+
+    .quote {
+        font-size: 1.1em;
+        padding-left: 15px;
+        border-left-width: 6px;
+    }
+
+    /* Adjust button positions for smaller screens */
+    .menu-toggle-btn {
+        top: 15px;
+        left: 15px;
+        padding: 8px 10px;
+    }
+
+    .theme-switch {
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 25px;
+    }
+    .slider:before {
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+    }
+    input:checked + .slider:before {
+        transform: translateX(19px);
+    }
+
+    .lessons-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+
+    .side-menu a {
+        font-size: 1.3em;
+    }
+    .close-menu-btn {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1em;
+    }
+    .quote {
+        font-size: 1em;
+    }
+    .lesson-card {
+        padding: 20px;
+    }
+    .lesson-card h3 {
+        font-size: 1.4em;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+    <nav id="side-menu" class="side-menu">
+        <button class="close-menu-btn">&times;</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="names_of_allah.html">99 Names of Allah</a></li>
+            <li><a href="moral_lessons.html">Moral Lessons</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <button class="menu-toggle-btn" id="menu-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+
+    <label class="theme-switch" id="theme-toggle">
+        <input type="checkbox">
+        <span class="slider round"></span>
+    </label>
+
+    <div class="container">
+        <h1>Islamic Moral Lessons</h1>
+        <p>Islam teaches us to live a life of honesty, kindness, and patience. Allah (SWT) commands us to be just, merciful, and to always remember Him in all aspects of our lives.</p>
+
+        <div class="quote">
+            <p>"Indeed, Allah is with those who fear Him and those who are doers of good." (Quran 16:128)</p>
+        </div>
+
+        <p>We must treat others with respect and kindness, following the example of Prophet Muhammad (peace be upon him). He said:</p>
+
+        <div class="quote">
+            <p>"The best among you are those who have the best manners and character." (Sahih Bukhari)</p>
+        </div>
+
+        <p>Let us strive to improve ourselves daily, seeking Allah’s guidance and forgiveness.</p>
+
+        <h2 id="moral-lessons">Further Wisdom from Islam</h2>
+
+        <div class="lessons-grid">
+            <div class="lesson-card">
+                <h3>Patience (Sabr)</h3>
+                <p>Enduring hardships with steadfastness and trusting in Allah's plan, knowing that ease follows difficulty.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Gratitude (Shukr)</h3>
+                <p>Being thankful for all of Allah's countless blessings, big or small, and acknowledging His favors.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Trust in Allah (Tawakkul)</h3>
+                <p>Relying on Allah after taking all necessary means, believing in His ultimate decree and provision.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Forgiveness (Afw)</h3>
+                <p>Pardoning others for their wrongs, even when you have the right to retaliate, seeking Allah's greater reward.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Honesty (Sidq)</h3>
+                <p>Always speaking the truth and being truthful in all dealings, for truthfulness leads to righteousness.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Sincerity (Ikhlas)</h3>
+                <p>Performing all actions solely for the pleasure of Allah, free from any form of showing off or worldly gain.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Humility (Tawadu)</h3>
+                <p>Avoiding arrogance and recognizing one's own limitations, knowing all power and might belong to Allah.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Justice (Adl)</h3>
+                <p>Being fair and impartial in all judgments and interactions, even towards those who differ from you.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Kindness to Parents</h3>
+                <p>Treating parents with utmost respect, love, and obedience, as their rights are immense.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Good Neighborliness</h3>
+                <p>Being considerate, helpful, and protective of your neighbors, extending goodwill to them.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Caring for the Needy</h3>
+                <p>Assisting the poor, orphans, widows, and those in distress, sharing from what Allah has given you.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Moderation (Wasatiyyah)</h3>
+                <p>Avoiding extremes in all aspects of life, adopting a balanced and middle path.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Preserving the Environment</h3>
+                <p>Being a steward of the Earth and its resources, avoiding waste and promoting sustainability.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Controlling Anger</h3>
+                <p>Suppressing rage and responding with calmness, as anger is from Shaytan (Satan).</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Keeping Promises</h3>
+                <p>Fulfilling commitments and honoring agreements, as breaking promises is a sign of hypocrisy.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Avoiding Backbiting & Slander</h3>
+                <p>Refraining from speaking ill of others behind their back and spreading false accusations.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Seeking Knowledge</h3>
+                <p>Continuously striving to learn and understand, for seeking knowledge is an act of worship.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Self-Accountability (Muhasabah)</h3>
+                <p>Regularly assessing one's own actions and intentions, striving for continuous improvement.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Brotherhood/Sisterhood</h3>
+                <p>Treating fellow Muslims as siblings, supporting each other, and fostering unity.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Generosity (Sakha)</h3>
+                <p>Giving freely and cheerfully from what Allah has provided, without expecting anything in return.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Purity (Taharah)</h3>
+                <p>Maintaining physical and spiritual cleanliness, both in body and intention.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Respect for Elders</h3>
+                <p>Honoring and showing deference to those older than us, benefiting from their wisdom.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Guarding the Tongue</h3>
+                <p>Being mindful of what is said, avoiding hurtful speech, gossip, and idle talk.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Contentment (Qana'ah)</h3>
+                <p>Being satisfied with what one has and avoiding excessive worldly desires, finding peace in sufficiency.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Consultation (Shura)</h3>
+                <p>Seeking advice from others in important matters, especially from those with knowledge and experience.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Truthfulness (Sidq)</h3>
+                <p>Always adhering to the truth in words and deeds, for it is a cornerstone of faith.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Humane Treatment of Animals</h3>
+                <p>Showing compassion and kindness to all living creatures, not causing them undue harm.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Keeping Family Ties (Silat ar-Rahim)</h3>
+                <p>Maintaining and strengthening relationships with relatives, visiting them and supporting them.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Honoring Guests</h3>
+                <p>Welcoming and treating guests generously, as it is a tradition of the Prophet (PBUH).</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Avoiding Envy (Hasad)</h3>
+                <p>Not wishing for the disappearance of blessings from others, but rather asking Allah for your own.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Dignity of Labor</h3>
+                <p>Working diligently and earning a lawful livelihood, as laziness is discouraged.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Seeking Forgiveness from Others</h3>
+                <p>Apologizing and seeking reconciliation with those you have wronged.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Protecting the Vulnerable</h3>
+                <p>Standing up for and safeguarding the rights of the weak, oppressed, and marginalized.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Cleanliness is Half of Faith</h3>
+                <p>Maintaining personal hygiene and keeping one's surroundings clean as a part of worship.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Good Deeds are Charity</h3>
+                <p>Understanding that every good deed, no matter how small, is considered an act of charity (sadaqah).</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Respect for All Religions</h3>
+                <p>Treating people of all faiths with respect and tolerance, avoiding compulsion in religion.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Honoring Agreements</h3>
+                <p>Being steadfast in fulfilling contracts and agreements, whether written or verbal.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Avoiding Extravagance (Israf)</h3>
+                <p>Spending moderately and avoiding wastefulness in all aspects of life.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Self-Control</h3>
+                <p>Controlling desires and impulses that are contrary to Islamic teachings and good character.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Thinking Good of Others</h3>
+                <p>Having a positive assumption about others, avoiding suspicion and negative judgments.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Pondering Creation</h3>
+                <p>Reflecting on the signs of Allah in the universe to increase faith and awe.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Good Character (Akhlaq)</h3>
+                <p>Developing virtuous qualities and traits that beautify one's personality and interactions.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Visiting the Sick</h3>
+                <p>Showing compassion and offering comfort to those who are ill.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Giving Rightful Due</h3>
+                <p>Ensuring that everyone receives what they are entitled to, whether in business or personal dealings.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Facing Trials with Fortitude</h3>
+                <p>Responding to calamities and tests from Allah with patience and reliance on Him.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Softness in Speech</h3>
+                <p>Using gentle, polite, and compassionate language in all conversations.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Punctuality</h3>
+                <p>Valuing time and fulfilling commitments on schedule, especially prayers.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Fulfilling Trusts (Amanah)</h3>
+                <p>Being reliable and safeguarding anything entrusted to you, including secrets and responsibilities.</p>
+            </div>
+             <div class="lesson-card">
+                <h3>Brotherhood Beyond Race/Ethnicity</h3>
+                <p>Recognizing the unity of Muslims transcends all racial and ethnic divisions.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>Seeking Knowledge for Action</h3>
+                <p>Acquiring knowledge not just for its own sake, but to implement it in one's life.</p>
+            </div>
+        </div>
+    </div>
+    <p style="text-align: center">Please Zoom out if you are having problem viewing it ❤️</p>
+    <footer style="width: 100%">
+        &copy; 2025 Islamic Moral Lessons | Remember Allah Always
+    </footer>
+    <script>
+      // script.js
+
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggleSwitch = document.querySelector('#theme-toggle input');
+    const body = document.body;
+    const menuToggleBtn = document.getElementById('menu-toggle');
+    const sideMenu = document.getElementById('side-menu');
+    const closeMenuBtn = document.querySelector('.close-menu-btn');
+    const menuLinks = document.querySelectorAll('.side-menu a');
+
+    // Function to set theme
+    function setTheme(theme) {
+        if (theme === 'light-mode') {
+            body.classList.add('light-mode');
+            themeToggleSwitch.checked = true; // Ensure switch is on
+            localStorage.setItem('theme', 'light-mode');
+        } else {
+            body.classList.remove('light-mode');
+            themeToggleSwitch.checked = false; // Ensure switch is off
+            localStorage.setItem('theme', 'dark-mode');
+        }
+    }
+
+    // Check for saved theme preference or default to dark mode
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        setTheme(savedTheme);
+    } else {
+        // Default to dark mode if no preference saved
+        setTheme('dark-mode');
+    }
+
+    // Theme toggle switch functionality
+    themeToggleSwitch.addEventListener('change', function() {
+        if (this.checked) {
+            setTheme('light-mode');
+        } else {
+            setTheme('dark-mode');
+        }
+    });
+
+    // Side menu toggle functionality
+    menuToggleBtn.addEventListener('click', function() {
+        sideMenu.style.width = '250px'; // Open the menu
+        // Optional: Add a class to body to darken/blur main content
+        // body.classList.add('menu-open');
+    });
+
+    closeMenuBtn.addEventListener('click', function() {
+        sideMenu.style.width = '0'; // Close the menu
+        // Optional: Remove the class from body
+        // body.classList.remove('menu-open');
+    });
+
+    // Close menu when a link is clicked (optional, but good for UX)
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            sideMenu.style.width = '0'; // Close the menu
+            // Optional: Remove the class from body
+            // body.classList.remove('menu-open');
+        });
+    });
+
+    // Close menu if clicked outside (optional)
+    document.addEventListener('click', function(event) {
+        if (sideMenu.style.width === '250px' &&
+            !sideMenu.contains(event.target) &&
+            !menuToggleBtn.contains(event.target)) {
+            sideMenu.style.width = '0';
+            // body.classList.remove('menu-open');
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

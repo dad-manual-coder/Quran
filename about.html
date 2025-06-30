@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Online Quran</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+  /* General Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Mode (Default) */
+body.light-mode {
+    background-color: #FFF0F5; /* Pinkish White */
+    color: #333;
+}
+
+body.light-mode header,
+body.light-mode .home-button,
+body.light-mode .mode-switcher,
+body.light-mode .feature-item,
+body.light-mode .social-button,
+body.light-mode .crypto-button,
+body.light-mode .crypto-card {
+    background-color: #FFE4E1; /* Muted Pink */
+    color: #333;
+    border-color: #FFC0CB; /* Lighter Pink */
+}
+
+body.light-mode a {
+    color: #FF1493; /* Deep Pink */
+}
+
+body.light-mode a:hover {
+    color: #C71585; /* Medium Violet Red */
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212; /* Dark Black */
+    color: #E0E0E0; /* Light Gray */
+}
+
+body.dark-mode header,
+body.dark-mode .home-button,
+body.dark-mode .mode-switcher,
+body.dark-mode .feature-item,
+body.dark-mode .social-button,
+body.dark-mode .crypto-button,
+body.dark-mode .crypto-card {
+    background-color: #1A1A1A; /* Slightly Lighter Black */
+    color: #A3E4D7; /* Sea Green */
+    border-color: #27AE60; /* Green */
+}
+
+body.dark-mode a {
+    color: #A3E4D7; /* Sea Green */
+}
+
+body.dark-mode a:hover {
+    color: #27AE60; /* Green */
+}
+
+/* Header and Navigation */
+header {
+    background-color: #FFE4E1; /* Muted Pink for Light, Black for Dark */
+    padding: 1.2rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.home-button {
+    background-color: #FFC0CB; /* Light Pink */
+    color: #333;
+    padding: 0.7rem 1.2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-button:hover {
+    background-color: #FF69B4; /* Hot Pink */
+    color: #fff;
+}
+
+.home-button i {
+    font-size: 1.1em;
+}
+
+.mode-switcher {
+    background-color: #FFC0CB; /* Light Pink */
+    color: #333;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mode-switcher:hover {
+    background-color: #FF69B4; /* Hot Pink */
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.mode-switcher i {
+    font-size: 1.1em;
+}
+
+/* Main Content */
+main {
+    padding: 100px 2rem 2rem; /* Adjust padding for fixed header */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+h1, h2 {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: 3em;
+    color: #FF1493; /* Deep Pink */
+}
+
+h2 {
+    font-size: 2.5em;
+    color: #FF69B4; /* Hot Pink */
+}
+
+body.dark-mode h1 {
+    color: #A3E4D7; /* Sea Green */
+}
+
+body.dark-mode h2 {
+    color: #27AE60; /* Green */
+}
+
+.about-hero p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Feature Grid */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-item {
+    background-color: #FFE4E1; /* Muted Pink for Light, Black for Dark */
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, background-color 0.3s;
+    border: 1px solid #FFC0CB; /* Lighter Pink */
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.feature-item i {
+    font-size: 3.5em;
+    color: #FF1493; /* Deep Pink */
+    margin-bottom: 1rem;
+}
+
+body.dark-mode .feature-item i {
+    color: #27AE60; /* Green */
+}
+
+.feature-item h3 {
+    font-size: 1.8em;
+    margin-bottom: 0.8rem;
+    color: #FF69B4; /* Hot Pink */
+}
+
+body.dark-mode .feature-item h3 {
+    color: #A3E4D7; /* Sea Green */
+}
+
+.feature-item p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+body.dark-mode .feature-item p {
+    color: #B0B0B0;
+}
+
+.call-to-action {
+    margin-top: 4rem;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #FF69B4; /* Hot Pink */
+}
+
+body.dark-mode .call-to-action {
+    color: #27AE60; /* Green */
+}
+
+/* Support Us Section */
+.support-us p {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.social-links {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social-button {
+    background-color: #FFC0CB; /* Light Pink */
+    color: #333;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-button:hover {
+    transform: translateY(-3px);
+}
+
+.social-button.telegram:hover {
+    background-color: #0088CC; /* Telegram Blue */
+    color: #fff;
+}
+
+.social-button.whatsapp:hover {
+    background-color: #25D366; /* WhatsApp Green */
+    color: #fff;
+}
+
+body.dark-mode .social-button.telegram:hover {
+    background-color: #0088CC;
+    color: #fff;
+}
+body.dark-mode .social-button.whatsapp:hover {
+    background-color: #25D366;
+    color: #fff;
+}
+
+
+.crypto-button {
+    background-color: #FF69B4; /* Hot Pink */
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 3rem;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.crypto-button:hover {
+    background-color: #C71585; /* Medium Violet Red */
+    transform: translateY(-3px);
+}
+
+body.dark-mode .crypto-button {
+    background-color: #27AE60; /* Green */
+    color: #fff;
+}
+
+body.dark-mode .crypto-button:hover {
+    background-color: #1E8449; /* Darker Green */
+}
+
+#crypto-addresses {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden; /* Ensures smooth hide/show transition */
+    max-height: 0; /* Hidden by default */
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    opacity: 0; /* Hidden by default */
+}
+
+#crypto-addresses.crypto-addresses-visible {
+    max-height: 500px; /* Adjust based on content height */
+    opacity: 1;
+}
+
+.crypto-card {
+    background-color: #FFE4E1; /* Muted Pink for Light, Darker Black for Dark */
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #FFC0CB; /* Lighter Pink */
+}
+
+.crypto-card p {
+    word-break: break-all; /* Ensures long addresses wrap */
+    margin-bottom: 1rem;
+    font-family: 'Courier New', Courier, monospace; /* Monospace font for addresses */
+    font-size: 1.1em;
+    color: #555;
+}
+
+body.dark-mode .crypto-card p {
+    color: #B0B0B0;
+}
+
+.crypto-card strong {
+    color: #FF1493; /* Deep Pink */
+}
+
+body.dark-mode .crypto-card strong {
+    color: #A3E4D7; /* Sea Green */
+}
+
+.copy-btn {
+    background-color: #FF69B4; /* Hot Pink */
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+}
+
+.copy-btn:hover {
+    background-color: #C71585; /* Medium Violet Red */
+    transform: translateY(-2px);
+}
+
+body.dark-mode .copy-btn {
+    background-color: #27AE60; /* Green */
+    color: #fff;
+}
+
+body.dark-mode .copy-btn:hover {
+    background-color: #1E8449; /* Darker Green */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    background-color: #FFE4E1; /* Muted Pink for Light, Black for Dark */
+    color: #555;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode footer {
+    background-color: #1A1A1A; /* Slightly Lighter Black */
+    color: #B0B0B0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .feature-item {
+        padding: 2rem;
+    }
+
+    .home-button, .mode-switcher {
+        padding: 0.6rem 1rem;
+        font-size: 0.9em;
+    }
+
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 1rem;
+    }
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    main {
+        padding: 150px 1rem 1rem; /* Adjust for stacked header */
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .feature-item {
+        padding: 1.5rem;
+    }
+
+    .crypto-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1em;
+    }
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="home-button"><i class="fas fa-home"></i> Home</a>
+            <button id="mode-switcher" class="mode-switcher">
+                <i class="fas fa-sun"></i> / <i class="fas fa-moon"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <h1>About My Mission</h1>
+            <p>Welcome to my platform, where I strive to share the beauty and wisdom of Islam with the world. My goal is to provide a comprehensive and accessible resource for spiritual growth and understanding.</p>
+        </section>
+
+        <section class="content-showcase">
+            <h2>What This Platform Offers</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-quran"></i>
+                    <h3>The Holy Quran (1-114 Surahs)</h3>
+                    <p>Dive deep into the divine words of the Quran. The service offers all 114 Surahs for contemplation, with options for download to enrich your spiritual journey.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Islamic Moral Lessons</h3>
+                    <p>Discover timeless moral lessons derived from Islamic teachings that guide us towards a life of righteousness, compassion, and peace.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-mosque"></i>
+                    <h3>99 Names of Allah</h3>
+                    <p>Explore the beautiful 99 Names of Allah (Asmaul Husna), each representing a unique attribute of God, fostering a deeper connection and understanding.</p>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+         
+
+<style>
+@keyframes glow {
+  from { text-shadow:2px 2px 8px rgba(0,0,0,0.5),0 0 10px #ff9ff3; }
+  to { text-shadow:2px 2px 8px rgba(0,0,0,0.5),0 0 20px #f368e0; }
+}
+</style>
+
+            <p class="call-to-action">I am dedicated to making knowledge useful and accessible to everyone for free, helping to spread peace and understanding across the globe.</p>
+        </section>
+      <p style="text-align: center">👨‍💻😊👩‍💻😎👇</p>
+
+<a href="https://dad-azcq.vercel.app/" style="text-decoration: none;">
+  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;<button style="padding:20px 40px;font-size:24px;font-weight:bold;color: black;background:rgba(255,255,255,0.2);border:2px solid rgba(255,255,255,0.4);border-radius:12px;backdrop-filter:blur(10px);box-shadow:0 8px 32px 0 rgba(31,38,135,0.37);cursor:pointer;transition:all 0.3s ease;"
+  onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 12px 40px rgba(31,38,135,0.5)';"
+  onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 8px 32px rgba(31,38,135,0.37)';">
+    About developer
+  </button>
+  <p style="text-align: center">Click above to view my profile...</p>
+</a>
+
+<p style="margin-top:20px;font-size:20px;color:#f0f0f0;text-shadow:2px 2px 8px rgba(0,0,0,0.5);background:rgba(0,0,0,0.2);padding:10px 20px;border-radius:8px;backdrop-filter:blur(5px);animation:glow 2s infinite alternate;">
+  The person behind the great work 💖
+</p>
+
+<style>
+@keyframes glow {
+  from {
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+  }
+  to {
+    text-shadow: 2px 2px 20px rgba(255, 255, 255, 0.8);
+  }
+}
+</style>
+        <section class="support-us">
+            <h2>Feel Free to Support...</h2>
+            <p>Your support helps me maintain and expand this platform, allowing me to continue providing valuable Islamic content to a wider audience. Every contribution, no matter how small, makes a significant difference.</p>
+
+            <div class="social-links">
+                <a href="https://t.me/ManualCoder" target="_blank" class="social-button telegram"><i class="fab fa-telegram-plane"></i> Telegram</a>
+                <a href="https://wa.me/+2203615096" target="_blank" class="social-button whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+
+            <button id="show-crypto-btn" class="crypto-button">Show Crypto Addresses</button>
+
+            <div id="crypto-addresses" class="crypto-addresses-hidden">
+                <div class="crypto-card">
+                    <p><strong>Bitcoin (BTC) Address:<br></strong> <span id="bitcoin-address">bc1qeqmpfpksa9pyzhh4ds676qj9x0cnmg3qa7mtc0</span></p>
+                    <button class="copy-btn" data-target="bitcoin-address"><i class="far fa-copy"></i> Copy</button>
+                </div>
+                <div class="crypto-card">
+                    <p><strong>Ethereum (ETH) Address:<br></strong> <span id="ethereum-address">0x48248286346982b01CE2C7C55dF1919b55567dB4</span></p>
+                    <button class="copy-btn" data-target="ethereum-address"><i class="far fa-copy"></i> Copy</button>
+                </div>
+                  <!--...-->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Your Islamic Content. All rights reserved.</p>
+    </footer>
+     <script>
+      document.addEventListener('DOMContentLoaded', () => {
+    const modeSwitcher = document.getElementById('mode-switcher');
+    const body = document.body;
+    const showCryptoBtn = document.getElementById('show-crypto-btn');
+    const cryptoAddressesDiv = document.getElementById('crypto-addresses');
+    const copyButtons = document.querySelectorAll('.copy-btn');
+
+    // Load saved mode from localStorage or default to light
+    const savedMode = localStorage.getItem('themeMode') || 'light-mode';
+    body.classList.add(savedMode);
+
+    // Toggle light/dark mode
+    modeSwitcher.addEventListener('click', () => {
+        if (body.classList.contains('light-mode')) {
+            body.classList.replace('light-mode', 'dark-mode');
+            localStorage.setItem('themeMode', 'dark-mode');
+        } else {
+            body.classList.replace('dark-mode', 'light-mode');
+            localStorage.setItem('themeMode', 'light-mode');
+        }
+    });
+
+    // Toggle crypto addresses visibility
+    showCryptoBtn.addEventListener('click', () => {
+        cryptoAddressesDiv.classList.toggle('crypto-addresses-visible');
+        if (cryptoAddressesDiv.classList.contains('crypto-addresses-visible')) {
+            showCryptoBtn.textContent = 'Hide Crypto Addresses';
+        } else {
+            showCryptoBtn.textContent = 'Show Crypto Addresses';
+        }
+    });
+
+    // Copy crypto address to clipboard
+    copyButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const targetId = event.currentTarget.dataset.target;
+            const addressElement = document.getElementById(targetId);
+            const address = addressElement.textContent;
+
+            // Use the modern Clipboard API
+            navigator.clipboard.writeText(address).then(() => {
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                button.style.backgroundColor = '#28a745'; // Success green
+
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    // Revert to original color based on current theme
+                    if (body.classList.contains('light-mode')) {
+                         button.style.backgroundColor = '#FF69B4'; // Hot Pink
+                    } else {
+                        button.style.backgroundColor = '#27AE60'; // Green
+                    }
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+                alert('Failed to copy address. Please copy it manually: ' + address);
+            });
+        });
+    });
+});
+
+    </script>
+</body>
+</html>
