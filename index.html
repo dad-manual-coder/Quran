@@ -316,7 +316,7 @@ audio {
 
     <div id="main">
         <div class="main-header-image">
-             <img src="/images/Allah_image.jpg" alt="Allah Image">
+             <img src="images/Allah_image.jpg" alt="Allah Image">
              <div class="overlay-text">
                  <br>
                 <h2 style="color: pink">Life is a test...</h2>
@@ -348,10 +348,10 @@ audio {
             suraItem.innerHTML = `
                 <h2>${suraName} ~${i}~</h2>
                 <audio controls>
-                    <source src="/audios/${i}.mp3" type="audio/mp3">
+                    <source src="audios/${i}.mp3" type="audio/mp3">
                     Your browser does not support the audio element.
                 </audio>
-                <a href="/audios/${i}.mp3" download class="download-button">Download</a>
+                <a href="audios/${i}.mp3" download class="download-button">Download</a>
             `;
             suraList.appendChild(suraItem);
         }
